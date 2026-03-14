@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zuoxu Wang | Academic Homepage</title>
+  <meta name="description" content="Zuoxu Wang - PhD Student at Texas A&M University working on 3D vision, point cloud learning, Gaussian splatting, and robust perception." />
+  <style>
+    :root {
+      --maroon: #500000;
+      --maroon-2: #6b0f0f;
+      --gold: #d6b87a;
+      --bg: #f7f5f2;
+      --card: #ffffff;
+      --text: #1f2328;
+      --muted: #5b6470;
+      --line: #e7e2da;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: var(--maroon); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(80,0,0,0.95);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.15);
+    }
+
+    .nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.96);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(80,0,0,0.92), rgba(107,15,15,0.78)),
+                  radial-gradient(circle at top right, rgba(214,184,122,0.25), transparent 32%);
+      color: #fff;
+      padding: 72px 22px 58px;
+    }
+
+    .hero-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.45fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2.1rem, 4.8vw, 3.55rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    .hero .subtitle {
+      font-size: 1.14rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.93);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      margin: 0 0 20px;
+      color: rgba(255,255,255,0.9);
+      font-size: 1.04rem;
+      max-width: 760px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      margin: 12px 0 0;
+      color: rgba(255,255,255,0.94);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--maroon);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 22px 70px;
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .muted { color: var(--muted); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      background: #f4efe8;
+      color: var(--maroon);
+      border: 1px solid #eadfcd;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .timeline-item, .pub-item, .project-item {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child,
+    .pub-item:first-child,
+    .project-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .item-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .item-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .pub-tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f7f0e1;
+      color: #7c5400;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-list a, .contact-list div {
+      padding: 12px 14px;
+      background: #fcfbf9;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero { padding-top: 52px; }
+      .card, .hero-card { padding: 18px; }
+      .section-title { font-size: 1.5rem; }
+      .nav-links { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">Zuoxu Wang</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Zuoxu Wang</h1>
+        <div class="subtitle">PhD Student · Artificial Intelligence and Data Science · Texas A&amp;M University</div>
+        <p>
+          I work on <strong>3D vision</strong>, <strong>point cloud learning</strong>,
+          <strong>Gaussian splatting</strong>, and <strong>robust perception</strong>.
+          My recent work focuses on geometric uncertainty, scalable 3D reconstruction,
+          and real-world perception systems for robotics, digital twins, and infrastructure inspection.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#publications">View Publications</a>
+          <a class="btn btn-secondary" href="#projects">View Projects</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div style="font-weight:800; font-size:1.08rem; margin-bottom:10px;">Current Focus</div>
+        <ul>
+          <li>GUARD: geometric uncertainty-aware robust denoising for point cloud segmentation</li>
+          <li>Scalable multi-view 3D damage modeling with mask-optimized Gaussian splatting</li>
+          <li>Geometry-aware real-to-sim reconstruction for robotics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="grid-2">
+      <div class="card">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am a PhD student at Texas A&amp;M University. My research spans 3D computer vision,
+          robust machine learning, and perception systems for robotics and infrastructure applications.
+          I am particularly interested in building methods that are both scientifically rigorous and practically deployable.
+        </p>
+        <div class="chips">
+          <span class="chip">3D Vision</span>
+          <span class="chip">Point Clouds</span>
+          <span class="chip">Gaussian Splatting</span>
+          <span class="chip">Robust Perception</span>
+          <span class="chip">Robotics</span>
+          <span class="chip">Digital Twins</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-item">
+          <div class="item-title">Texas A&amp;M University</div>
+          <div class="item-meta">PhD in Artificial Intelligence and Data Science · 2024–Present</div>
+          <div>Advisor: Prof. Xiao Liang</div>
+        </div>
+        <div class="timeline-item">
+          <div class="item-title">Southeast University</div>
+          <div class="item-meta">MS in Transportation Engineering · 2021–2024</div>
+          <div>Thesis on road surface defect recognition using point cloud and image fusion.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="item-title">Northeast Forestry University</div>
+          <div class="item-meta">BS in Engineering · 2017–2021</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="card">
+      <h2 class="section-title">Research Experience</h2>
+      <div class="timeline-item">
+        <div class="item-title">Scalable Multi-View 3D Damage Modeling via Mask-Optimized Gaussian Splatting</div>
+        <div class="item-meta">2026–Present</div>
+        <div>Built a scalable 3D reconstruction system that refines millions of Gaussians using sparse mask supervision and cross-view optimization for inspection and digital twin scenarios.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="item-title">Geometric-Aware Gaussian Splatting for Real-to-Sim Reconstruction</div>
+        <div class="item-meta">2025–Present</div>
+        <div>Developed a geometry-aware Gaussian splatting pipeline combining robot-arm calibration and pose estimation for robotic manipulation and simulation transfer.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="item-title">Uncertainty-Aware 3D Perception and Point Cloud Optimization</div>
+        <div class="item-meta">2024–2025</div>
+        <div>Built an RFF-enhanced point cloud learning framework with geometric uncertainty for outlier removal, edge detection, segmentation, Bayesian optimization, and architecture search.</div>
+      </div>
+    </section>
+
+    <section id="publications" class="card">
+      <h2 class="section-title">Publications</h2>
+      <div class="pub-item">
+        <div class="item-title">GUARD – Geometric Uncertainty-Aware Robust Denoiser for Point Cloud Segmentation</div>
+        <div class="item-meta">Zuoxu Wang, Xiao Liang · CVPR 2026 · Under Review</div>
+        <span class="pub-tag">First Author</span>
+      </div>
+      <div class="pub-item">
+        <div class="item-title">Fine-Grained Vehicle Make and Model Recognition Framework Based on Magnetic Fingerprint</div>
+        <div class="item-meta">Hancheng Zhang, Zuoxu Wang, Zhendong Qian, et al. · IEEE Transactions on Intelligent Transportation Systems · 2024</div>
+        <span class="pub-tag">Co-Author</span>
+      </div>
+      <div class="pub-item">
+        <div class="item-title">A Complex Scene Pavement Crack Semantic Segmentation Method Based on Dual-Stream Framework</div>
+        <div class="item-meta">Zuoxu Wang, Hancheng Zhang, Zhendong Qian, et al. · International Journal of Pavement Engineering · 2023</div>
+        <span class="pub-tag">First Author</span>
+      </div>
+      <div class="pub-item">
+        <div class="item-title">A Novel Medical Image Fusion Approach Based on Nonsubsampled Shearlet Transform</div>
+        <div class="item-meta">Liangliang Li, Linli Wang, Zuoxu Wang, et al. · Journal of Medical Imaging and Health Informatics · 2019</div>
+        <span class="pub-tag">Co-Author</span>
+      </div>
+    </section>
+
+    <section id="projects" class="card">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="project-item">
+        <div class="item-title">GUARD</div>
+        <div class="item-meta">Robust point cloud segmentation under noise</div>
+        <div>Geometry-conditioned uncertainty modeling for denoising, outlier filtering, and improved segmentation robustness across backbones.</div>
+      </div>
+      <div class="project-item">
+        <div class="item-title">Mask-Optimized Gaussian Splatting</div>
+        <div class="item-meta">Large-scale 3D scene reconstruction with semantic supervision</div>
+        <div>Semantic attributes are learned directly in 3D for real-time rendering and structured damage analysis.</div>
+      </div>
+      <div class="project-item">
+        <div class="item-title">Uncertainty-Aware Point Cloud Learning</div>
+        <div class="item-meta">RFF, GP uncertainty, and architecture optimization</div>
+        <div>A unified direction for edge detection, outlier removal, calibration, and efficient hyperparameter tuning.</div>
+      </div>
+    </section>
+
+    <section id="contact" class="grid-2">
+      <div class="card">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-list">
+          <a href="mailto:zuoxu@tamu.edu">zuoxu@tamu.edu</a>
+          <a href="https://github.com/001-Wang" target="_blank" rel="noreferrer">GitHub: 001-Wang</a>
+          <a href="https://www.linkedin.com/in/zuoxu-wang" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Notes</h2>
+        <p class="muted">
+          Replace the LinkedIn and Google Scholar links with your own profile URLs.
+          You can also add a CV PDF, project pages, paper links, and representative figures.
+        </p>
+        <p class="muted">
+          This single-file homepage is designed to be deployed quickly on GitHub Pages and can later be expanded into a multi-page academic website.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Zuoxu Wang · Built with GitHub Pages
+    </footer>
+  </main>
+</body>
+</html>
